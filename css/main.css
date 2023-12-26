@@ -1,0 +1,326 @@
+/*body{*/
+/*overflow: hidden;*/
+/*}*/
+
+.navbar-nav>li>a{
+    font-size: 16px;
+}
+
+.navbar.navbar-default {
+    background: #ffeeb3;
+}
+
+/*.navbar{*/
+/*padding: 10px;*/
+/*}*/
+
+hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+    color: #333;
+    background-color: rgba(173, 130, 53, 0.59);
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #8a884a;
+}
+
+.navbar-default .navbar-toggle:hover {
+    background-color: #fdf4b9;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #1b1b1b;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #747474;
+}
+
+#about{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cfe7fa+13,6393c1+100 */
+    background: #d9edf7; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  #f5f5f5 30%, #d9edf7 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover,  #f5f5f5 30%,#d9edf7 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center,  #f5f5f5 30%,#d9edf7 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#d9edf7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+
+a{
+    letter-spacing: 1px;
+}
+
+#services{
+    background: #cfdbf9; /* fallback for old browsers */
+    padding-top: 80px;
+}
+
+#services .light-title{
+    margin-top: 10px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+#projects{
+    padding-top: 80px;
+    background: #7577a5
+}
+
+#projects .light-title{
+    margin-bottom: 60px;
+    color: #fff;
+
+}
+
+#projects .description{
+    margin-bottom: 60px;
+    display: inline-block;
+    color: #fff;
+    font-size: 22px;
+}
+
+#projects .title{
+    font-weight: 300;
+    color: #fff;
+    font-size: 30px;
+    text-decoration: none;
+    -o-transition:.2s;
+    -ms-transition:.2s;
+    -moz-transition:.2s;
+    -webkit-transition:.2s;
+    /* ...and now for the proper property */
+    transition:.2s;
+    display: table;
+    text-align: left;
+
+}
+
+#projects .title:not(.link-title):hover{
+    color: #333;
+}
+
+.detail-link{
+    border-bottom: 1px solid #fff;
+    padding-bottom: 3px;
+    text-align: left;
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.detail-link:hover, .detail-link:active{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#contact{
+    background: #626573;
+}
+
+#contact .light-title{
+    color: #ffffff;
+}
+
+.text-column{
+    color: #f5f5f5;
+    min-height: 200px;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+.text-column .title{
+    font-weight: 100;
+    font-size: 28px;
+}
+
+.link-title{
+    font-size: 20px !important;
+    letter-spacing: 2px;
+}
+
+.lead.description .link-title{
+    letter-spacing: 2px;
+}
+.light-text{
+    font-size: 18px;
+    font-weight: 300;
+    text-align: left;
+    line-height: 25px;
+    letter-spacing: 1px;
+}
+
+.navbar-nav{
+    float: right;
+    margin-right: 30px;
+    overflow: hidden;
+}
+
+.landing-content{
+    margin-top: 2%;
+    padding: 20px;
+}
+
+.landing-content p {
+    line-height: 40px;
+    letter-spacing: 1.2px;
+    font-weight: 300;
+}
+
+.light-title{
+    font-size: 42px;
+    letter-spacing: 2px;
+    font-weight: 100;
+}
+
+.landing-icons img{
+    width: 128px;
+}
+
+.landing-icons {
+    margin-top: 60px;
+}
+
+.thumb{
+    margin-bottom: 40px;
+    display: table;
+    height: 180px;
+    float: left;
+    width: 16.66666667%;
+}
+
+.thumb-wrap{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.map-link{
+    padding: 0;
+    border-radius: 5px;
+    width: 400px;
+    border: 10px solid rgba(172, 172, 172, 0.5);
+    display: inline-block;
+    -o-transition:.4s;
+    -ms-transition:.4s;
+    -moz-transition:.4s;
+    -webkit-transition:.4s;
+    transition:.4s;
+}
+
+img.map-image{
+    width: 380px;
+    height: auto;
+}
+
+.map-link:hover{
+    border-color: #333333;
+}
+
+.address-line{
+    color: #ffffff;
+    text-align: left;
+    font-weight: 100 !important;
+    font-size: 20px !important;
+    letter-spacing: 2px;
+}
+
+a.address-line{
+    font-weight: 300 !important;
+    text-decoration: none !important;
+    color: #ffffff;
+    -o-transition:.2s;
+    -ms-transition:.2s;
+    -moz-transition:.2s;
+    -webkit-transition:.2s;
+    transition:.2s;
+}
+
+a.address-line:hover{
+    color: #333333;
+    cursor: pointer;
+}
+
+.block{
+    display: block;
+}
+
+.address{
+    margin-top: 60px;
+}
+
+.contact-title{
+    margin-top: -60px;
+    margin-bottom: 80px;
+}
+
+.landing-icons div{
+    display: inline-block;
+}
+
+.project-column {
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+ul.link-list{
+    color: #fff;
+    text-align: left;
+    padding-left: 10px;
+
+}
+
+.link-list li{
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.link-list li a.title {
+    font-size: 28px !important;
+    font-weight: 100 !important;
+    text-align: left !important;
+}
+
+
+
+@media screen and (max-width: 750px) and (min-width: 320px) {
+    #about{
+        min-height: 900px;
+    }
+
+    #about img{
+        width: 80px;
+    }
+
+    #services .thumb{
+        width: 25%;
+        height: 100px;
+    }
+
+    #services {
+        min-height: 700px;
+    }
+
+    #projects{
+        min-height: 1100px;
+    }
+
+    #contact{
+        min-height: 1000px;
+    }
+
+    .map-link{
+        width: 320px;
+    }
+
+    img.map-image{
+        width: 300px;
+        height: auto;
+    }
+
+}
