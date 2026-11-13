@@ -1,263 +1,716 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="robots" content="noindex">
-    <meta name="googlebot" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="title" content="Hypersoft Limited - Software Solutions and Consultancy">
-    <meta name="description" content="Creativity is at the heart of everything we do!">
+    <meta name="color-scheme" content="light">
+    <title>Hypersoft Limited | Mobile Apps, AI, Backend &amp; Cloud Engineering</title>
+    <meta name="description" content="Hypersoft Limited is a London-based software consultancy. We design and build mobile apps, AI features, backend platforms and cloud infrastructure for growing companies.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hypersoft Limited | Mobile Apps, AI, Backend &amp; Cloud Engineering">
+    <meta property="og:description" content="Mobile apps, AI features, backend platforms and cloud infrastructure. London, UK.">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234f46e5'/%3E%3Cstop offset='1' stop-color='%23c026d3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Cpath d='M9 8v16M9 16h9M18 8v16' stroke='white' stroke-width='3' fill='none'/%3E%3Crect x='22' y='8' width='3.5' height='16' fill='white'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --tint: #f6f7ff;
+            --ink: #0b0b3b;
+            --text: #33364d;
+            --muted: #646882;
+            --line: #e6e8f2;
+            --indigo: #4f46e5;
+            --violet: #9333ea;
+            --magenta: #c026d3;
+            --cyan: #0891b2;
+            --amber: #d97706;
+            --emerald: #059669;
+            --rose: #e11d48;
+            --grad: linear-gradient(120deg, #4f46e5 0%, #9333ea 50%, #db2777 100%);
+            --radius: 18px;
+            --max: 1180px;
+            --display: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+            --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+            --shadow: 0 1px 2px rgba(16, 18, 60, .04), 0 8px 24px -8px rgba(16, 18, 60, .10);
+            --shadow-lg: 0 2px 4px rgba(16, 18, 60, .04), 0 24px 48px -16px rgba(60, 40, 160, .22);
+        }
 
-    <title>HyperSoft Limited - Crafting software for ideas</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/scrolling-nav.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+        body {
+            margin: 0; background: var(--bg); color: var(--text);
+            font: 16px/1.65 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            -webkit-font-smoothing: antialiased; overflow-x: hidden;
+        }
+        a { color: var(--indigo); text-decoration: none; }
+        h1, h2, h3 { font-family: var(--display); color: var(--ink); line-height: 1.12; margin: 0; letter-spacing: -0.025em; }
+        p { margin: 0; }
+        ul { margin: 0; padding: 0; list-style: none; }
+        .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+        .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
+        /* Header */
+        .site-header {
+            position: sticky; top: 0; z-index: 20;
+            background: rgba(255, 255, 255, .78);
+            backdrop-filter: saturate(1.6) blur(14px); -webkit-backdrop-filter: saturate(1.6) blur(14px);
+            border-bottom: 1px solid rgba(230, 232, 242, .8);
+        }
+        .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .logo img { display: block; height: 24px; width: auto; }
+        .nav { display: flex; align-items: center; gap: 30px; font-size: 15px; font-weight: 500; }
+        .nav a { color: var(--text); transition: color .15s; }
+        .nav a:hover { color: var(--indigo); }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 13px 22px; border-radius: 12px; font-weight: 600; font-size: 15px;
+            border: 1px solid transparent; transition: transform .15s ease, box-shadow .15s ease;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-primary { background: var(--grad); color: #fff !important; box-shadow: 0 10px 24px -10px rgba(124, 58, 237, .65); }
+        .btn-primary:hover { box-shadow: 0 14px 28px -10px rgba(124, 58, 237, .75); }
+        .btn-ghost { background: #fff; border-color: var(--line); color: var(--ink) !important; box-shadow: var(--shadow); }
+        .nav .btn { padding: 9px 18px; }
+
+        /* Hero */
+        .hero { position: relative; padding: 88px 0 96px; isolation: isolate; }
+        .hero::before {
+            content: ""; position: absolute; inset: -80px 0 0 0; z-index: -1;
+            background:
+                radial-gradient(40% 50% at 12% 18%, rgba(99, 102, 241, .16), transparent 70%),
+                radial-gradient(35% 45% at 88% 12%, rgba(217, 70, 239, .14), transparent 70%),
+                radial-gradient(40% 50% at 70% 85%, rgba(6, 182, 212, .14), transparent 70%),
+                linear-gradient(180deg, #fbfbff 0%, #ffffff 100%);
+        }
+        .hero::after {
+            content: ""; position: absolute; inset: 0; z-index: -1; opacity: .5;
+            background-image: radial-gradient(rgba(79, 70, 229, .14) 1px, transparent 1px);
+            background-size: 22px 22px;
+            -webkit-mask-image: radial-gradient(60% 60% at 50% 40%, #000 30%, transparent 75%);
+            mask-image: radial-gradient(60% 60% at 50% 40%, #000 30%, transparent 75%);
+        }
+        .hero .wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; }
+        .pill {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 6px 14px 6px 6px; border-radius: 999px; font-size: 13.5px; font-weight: 500;
+            background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow); color: var(--text);
+        }
+        .pill b { background: var(--grad); color: #fff; font-weight: 600; font-size: 12px; padding: 3px 10px; border-radius: 999px; }
+        .hero h1 { font-size: clamp(40px, 5.6vw, 66px); font-weight: 800; margin-top: 24px; }
+        .hero .lead { font-size: clamp(17px, 1.5vw, 19.5px); color: var(--muted); margin-top: 22px; max-width: 54ch; }
+        .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+        .proof { display: flex; flex-wrap: wrap; gap: 20px 24px; margin-top: 44px; }
+        .proof div { line-height: 1.3; }
+        .proof strong { display: block; font-family: var(--display); font-size: 25px; color: var(--ink); font-weight: 800; }
+        .proof span { font-size: 13.5px; color: var(--muted); }
+
+        /* Hero visual */
+        .visual { position: relative; }
+        .window {
+            background: rgba(255, 255, 255, .9); border: 1px solid var(--line); border-radius: 20px;
+            box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+        .window-bar { display: flex; align-items: center; gap: 7px; padding: 14px 18px; border-bottom: 1px solid var(--line); background: #fafbff; }
+        .window-bar i { width: 11px; height: 11px; border-radius: 50%; background: #e3e5f0; display: block; }
+        .window-bar i:nth-child(1) { background: #ff6b6b; } .window-bar i:nth-child(2) { background: #ffc53d; } .window-bar i:nth-child(3) { background: #3ddc84; }
+        .window-bar span { margin-left: 10px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+        .flow { padding: 26px 24px 28px; display: grid; gap: 14px; }
+        .node {
+            display: flex; align-items: center; gap: 14px; padding: 14px 16px;
+            border: 1px solid var(--line); border-radius: 14px; background: #fff;
+        }
+        .node .ni { width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; flex: none; color: #fff; }
+        .node .ni svg { width: 19px; height: 19px; }
+        .node strong { display: block; font-size: 14.5px; color: var(--ink); font-weight: 600; }
+        .node small { font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+        .node .status { margin-left: auto; font-family: var(--mono); font-size: 11.5px; padding: 4px 9px; border-radius: 999px; background: #ecfdf5; color: var(--emerald); white-space: nowrap; }
+        .node.ai { border-color: transparent; background: linear-gradient(#fff, #fff) padding-box, var(--grad) border-box; border: 1.5px solid transparent; }
+        .connector { height: 14px; margin: -8px 0 -8px 34px; border-left: 2px dashed #c9cbe8; }
+        .float {
+            position: absolute; background: #fff; border: 1px solid var(--line); border-radius: 14px;
+            box-shadow: var(--shadow-lg); padding: 12px 14px; display: flex; align-items: center; gap: 10px;
+            font-size: 13px; font-weight: 600; color: var(--ink); animation: bob 6s ease-in-out infinite;
+        }
+        .float .dot { width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; color: #fff; }
+        .float .dot svg { width: 15px; height: 15px; }
+        .float.f1 { top: -22px; right: -18px; }
+        .float.f2 { bottom: -24px; right: 24px; animation-delay: -3s; }
+
+        /* Phone mockup */
+        .visual { padding-left: 124px; } .visual .flow { padding-left: 64px; }
+        .phone {
+            position: absolute; left: 0; top: 50%; transform: translateY(-46%); z-index: 2;
+            width: 184px; padding: 9px; border-radius: 36px; background: #0b0b3b;
+            box-shadow: 0 30px 60px -20px rgba(40, 30, 120, .55), inset 0 0 0 2px #2b2b66;
+        }
+        .phone .screen { position: relative; border-radius: 28px; overflow: hidden; background: #f7f7fd; height: 384px; display: flex; flex-direction: column; }
+        .phone .notch { position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 64px; height: 18px; border-radius: 999px; background: #0b0b3b; z-index: 1; }
+        .phone .app-head { background: var(--grad); color: #fff; padding: 34px 14px 16px; }
+        .phone .app-head small { font-size: 10.5px; opacity: .85; display: block; }
+        .phone .app-head strong { font-family: var(--display); font-size: 16px; font-weight: 700; }
+        .phone .app-body { padding: 12px; display: grid; gap: 9px; }
+        .phone .bubble { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 9px 10px; font-size: 10.5px; line-height: 1.45; color: var(--text); }
+        .phone .bubble b { display: flex; align-items: center; gap: 5px; font-size: 10px; color: var(--violet); margin-bottom: 3px; }
+        .phone .row { display: flex; align-items: center; gap: 9px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px; }
+        .phone .row i { width: 26px; height: 26px; border-radius: 8px; flex: none; display: block; }
+        .phone .row span { display: grid; gap: 4px; flex: 1; }
+        .phone .row span::before, .phone .row span::after { content: ""; height: 6px; border-radius: 4px; background: #e2e4f3; }
+        .phone .row span::before { width: 80%; background: #c9cce6; }
+        .phone .row span::after { width: 55%; }
+        .phone .tabbar { margin-top: auto; display: flex; justify-content: space-around; padding: 10px 0 14px; background: #fff; border-top: 1px solid var(--line); }
+        .phone .tabbar i { width: 18px; height: 18px; border-radius: 6px; background: #e2e4f3; display: block; }
+        .phone .tabbar i:first-child { background: var(--grad); }
+        .platforms { position: absolute; left: 22px; bottom: -34px; z-index: 3; display: flex; gap: 6px; }
+        .platforms span { font-size: 11.5px; font-weight: 600; padding: 5px 10px; border-radius: 999px; background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow); color: var(--ink); }
+
+        /* Mobile service */
+        .service.mobile-service {
+            display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; margin-bottom: 22px; padding: 40px;
+            border: 1.5px solid transparent;
+            background: linear-gradient(120deg, #ffffff 30%, #f3f0ff 70%, #fdf2f8 100%) padding-box, var(--grad) border-box;
+        }
+        .service.mobile-service h3 { font-size: 28px; }
+        .service.mobile-service ul { grid-template-columns: 1fr 1fr; gap: 10px 22px; }
+        .mobile-art { display: flex; justify-content: center; gap: 18px; align-items: flex-end; }
+        .mini-phone { width: 120px; height: 230px; border-radius: 24px; background: #0b0b3b; padding: 6px; box-shadow: 0 20px 40px -18px rgba(40, 30, 120, .5); }
+        .mini-phone div { height: 100%; border-radius: 19px; overflow: hidden; display: flex; flex-direction: column; gap: 7px; padding: 0 0 8px; background: #f7f7fd; }
+        .mini-phone div::before { content: ""; height: 64px; background: var(--grad); flex: none; }
+        .mini-phone span { margin: 0 8px; height: 30px; border-radius: 8px; background: #fff; border: 1px solid var(--line); }
+        .mini-phone.alt { height: 200px; transform: translateY(-14px); }
+        .mini-phone.alt div::before { background: linear-gradient(135deg, #22d3ee, #4f46e5); }
+        .store { display: flex; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
+        .store span { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; padding: 7px 13px; border-radius: 10px; background: var(--ink); color: #fff; }
+        @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+        .bg-indigo { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+        .bg-violet { background: linear-gradient(135deg, #a855f7, #7e22ce); }
+        .bg-magenta { background: linear-gradient(135deg, #e879f9, #c026d3); }
+        .bg-cyan { background: linear-gradient(135deg, #22d3ee, #0891b2); }
+        .bg-amber { background: linear-gradient(135deg, #fbbf24, #d97706); }
+        .bg-emerald { background: linear-gradient(135deg, #34d399, #059669); }
+        .bg-rose { background: linear-gradient(135deg, #fb7185, #e11d48); }
+        .bg-sky { background: linear-gradient(135deg, #38bdf8, #0284c7); }
+
+        /* Industries */
+        .industries { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #fff; padding: 26px 0; }
+        .industries .wrap { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; justify-content: center; }
+        .industries p { font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 600; }
+        .industries ul { display: flex; flex-wrap: wrap; gap: 10px 26px; justify-content: center; }
+        .industries li { font-family: var(--display); font-weight: 700; color: #50547a; font-size: 15.5px; }
+
+        /* Sections */
+        section { padding: 104px 0; position: relative; }
+        .section-head { max-width: 720px; margin: 0 auto 56px; text-align: center; }
+        .kicker {
+            display: inline-block; font-family: var(--mono); font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase;
+            color: var(--indigo); background: #eef0ff; padding: 6px 12px; border-radius: 8px; margin-bottom: 18px;
+        }
+        .section-head h2 { font-size: clamp(30px, 3.8vw, 46px); font-weight: 800; }
+        .section-head p { color: var(--muted); margin-top: 16px; font-size: 18px; }
+
+        /* Services */
+        .ai-services { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 22px; }
+        .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+        .service {
+            position: relative; background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 30px; box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease, border-color .2s;
+            display: flex; flex-direction: column;
+        }
+        .service:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: #d6d9f5; }
+        .service .si { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; color: #fff; margin-bottom: 22px; box-shadow: 0 8px 18px -8px rgba(60, 40, 160, .45); }
+        .service .si svg { width: 23px; height: 23px; }
+        .service h3 { font-size: 21px; font-weight: 700; margin-bottom: 10px; }
+        .service > p { color: var(--muted); font-size: 15.5px; }
+        .service ul { margin-top: 18px; display: grid; gap: 9px; }
+        .service li { position: relative; padding-left: 26px; font-size: 15px; color: var(--text); }
+        .service li::before {
+            content: ""; position: absolute; left: 0; top: 4px; width: 16px; height: 16px; border-radius: 50%;
+            background: #eef0ff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' stroke='%234f46e5' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat;
+        }
+        .service .tech { margin-top: auto; padding-top: 22px; font-size: 13px; color: var(--muted); }
+        .service .tech b { color: var(--ink); font-weight: 600; }
+        .service.featured {
+            border: 1.5px solid transparent;
+            background: linear-gradient(160deg, #ffffff 40%, #faf5ff 100%) padding-box, var(--grad) border-box;
+            padding: 36px;
+        }
+        .service.featured h3 { font-size: 25px; }
+        .tag {
+            position: absolute; top: 24px; right: 24px; font-size: 12px; font-weight: 600;
+            padding: 5px 11px; border-radius: 999px; background: var(--grad); color: #fff;
+        }
+
+        /* Engagement models */
+        .tinted { background: var(--tint); }
+        .tinted::before {
+            content: ""; position: absolute; inset: 0; pointer-events: none;
+            background: radial-gradient(40% 60% at 100% 0%, rgba(217, 70, 239, .08), transparent 70%),
+                        radial-gradient(40% 60% at 0% 100%, rgba(6, 182, 212, .08), transparent 70%);
+        }
+        .models { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; position: relative; }
+        .model { background: #fff; border-radius: var(--radius); padding: 36px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+        .model .num { font-family: var(--mono); font-size: 13px; color: var(--violet); }
+        .model h3 { font-size: 24px; font-weight: 800; margin: 10px 0 12px; }
+        .model p { color: var(--muted); }
+        .model ul { margin-top: 20px; display: grid; gap: 10px; }
+        .model li { display: flex; gap: 10px; font-size: 15px; }
+        .model li::before { content: "→"; color: var(--indigo); font-weight: 700; }
+
+        /* Process */
+        .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; counter-reset: s; }
+        .step { position: relative; padding: 30px 26px; border-radius: var(--radius); background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow); }
+        .step::before {
+            counter-increment: s; content: "0" counter(s);
+            display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 12px;
+            font-family: var(--display); font-weight: 800; font-size: 15px; color: #fff; background: var(--grad); margin-bottom: 18px;
+        }
+        .step h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+        .step p { color: var(--muted); font-size: 15px; }
+
+        /* Why */
+        .why { display: grid; grid-template-columns: 1fr 1.15fr; gap: 64px; align-items: center; }
+        .why h2 { font-size: clamp(30px, 3.8vw, 44px); font-weight: 800; }
+        .why .intro { color: var(--muted); font-size: 18px; margin-top: 18px; }
+        .why .founder { margin-top: 28px; padding: 20px 22px; border-radius: 16px; background: var(--tint); border: 1px solid var(--line); font-size: 15px; }
+        .why .founder a { font-weight: 600; }
+        .why-list { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .why-item { padding: 24px; border-radius: 16px; border: 1px solid var(--line); background: #fff; box-shadow: var(--shadow); }
+        .why-item .wi { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; color: #fff; margin-bottom: 14px; }
+        .why-item .wi svg { width: 18px; height: 18px; }
+        .why-item h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+        .why-item p { font-size: 14.5px; color: var(--muted); }
+
+        /* CTA */
+        .cta {
+            position: relative; overflow: hidden; border-radius: 28px; padding: 72px 56px; text-align: center; color: #fff;
+            background: linear-gradient(120deg, #4f46e5 0%, #7c3aed 45%, #db2777 100%);
+            box-shadow: 0 30px 60px -24px rgba(124, 58, 237, .55);
+        }
+        .cta::before {
+            content: ""; position: absolute; inset: 0; opacity: .35;
+            background: radial-gradient(40% 70% at 10% 0%, rgba(255, 255, 255, .55), transparent 60%),
+                        radial-gradient(35% 60% at 95% 100%, rgba(34, 211, 238, .7), transparent 60%);
+        }
+        .cta > * { position: relative; }
+        .cta h2 { color: #fff; font-size: clamp(30px, 4vw, 48px); font-weight: 800; }
+        .cta p { color: rgba(255, 255, 255, .88); font-size: 18px; margin: 16px auto 0; max-width: 56ch; }
+        .cta .actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 34px; }
+        .cta .btn-white { background: #fff; color: var(--ink) !important; box-shadow: 0 10px 24px -10px rgba(0, 0, 0, .35); }
+        .cta .email { font-family: var(--mono); font-size: 15px; color: #fff; align-self: center; border-bottom: 1px solid rgba(255, 255, 255, .5); padding-bottom: 2px; }
+        .cta .where { margin-top: 22px; font-size: 14px; color: rgba(255, 255, 255, .75); }
+
+        footer { padding: 44px 0 56px; font-size: 14px; color: var(--muted); }
+        footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+        footer img { height: 18px; width: auto; display: block; }
+        footer nav { display: flex; gap: 22px; }
+        footer nav a { color: var(--muted); }
+
+        @media (max-width: 1180px) and (min-width: 981px) { .node .status { display: none; } }
+        @media (max-width: 980px) {
+            .hero .wrap { grid-template-columns: 1fr; gap: 64px; }
+            .visual { max-width: 600px; margin: 0 auto; width: 100%; }
+            .services { grid-template-columns: 1fr 1fr; }
+            .service.mobile-service { grid-template-columns: 1fr; }
+            .process { grid-template-columns: 1fr 1fr; }
+            .why { grid-template-columns: 1fr; gap: 40px; }
+        }
+        @media (max-width: 720px) {
+            .wrap { padding: 0 16px; }
+            .nav a:not(.btn) { display: none; }
+            .hero { padding: 56px 0 72px; }
+            section { padding: 72px 0; }
+            .ai-services, .services, .models, .process, .why-list { grid-template-columns: 1fr; }
+            .service, .service.featured, .model { padding: 26px; }
+            .tag { position: static; display: inline-block; margin-bottom: 14px; align-self: flex-start; }
+            .float.f1 { right: -4px; } .float.f2 { left: -4px; }
+            .node .status { display: none; }
+            .visual { padding-left: 0; display: flex; flex-direction: column; padding-bottom: 44px; } .visual .flow { padding-left: 24px; }
+            .phone { position: relative; top: auto; transform: none; order: 2; margin: -36px auto 0; width: 176px; }
+            .phone .screen { height: 330px; }
+            .platforms { left: 50%; transform: translateX(-50%); bottom: -40px; }
+            .float.f2 { display: none; }
+            .service.mobile-service { grid-template-columns: 1fr; padding: 26px; gap: 28px; }
+            .service.mobile-service ul { grid-template-columns: 1fr; }
+            .cta { padding: 52px 24px; border-radius: 22px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .float { animation: none; }
+            .btn, .service { transition: none; }
+        }
+    </style>
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand page-scroll" href="#page-top">
-                <img src="images/logo.png" srcset="images/logo@2x.png" width="180" style="margin-top: -8px">
-            </a>
+<header class="site-header">
+    <div class="wrap">
+        <a class="logo" href="#top" aria-label="Hypersoft Limited, home">
+            <img src="images/logo@2x.png" alt="HyperSoft" width="117" height="24">
+        </a>
+        <nav class="nav" aria-label="Primary">
+            <a href="#services">Services</a>
+            <a href="#engagements">Engagements</a>
+            <a href="#process">Process</a>
+            <a href="#why">Why us</a>
+            <a class="btn btn-primary" href="#contact">Start a project</a>
+        </nav>
+    </div>
+</header>
+
+<main id="top">
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="wrap">
+            <div>
+                <span class="pill"><b>AI</b> Intelligent apps, built for production</span>
+                <h1>We build <span class="grad-text"><span style="white-space:nowrap">AI-powered</span> apps</span> tailored to your business.</h1>
+                <p class="lead">
+                    Hypersoft is a London-based software consultancy. We design and build AI-powered applications around
+                    the way your business works, along with the scalable backend and cloud platforms behind them. Senior-level engineering,
+                    from the first conversation to launch and handover.
+                </p>
+                <div class="actions">
+                    <a class="btn btn-primary" href="#contact">Start a project
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </a>
+                    <a class="btn btn-ghost" href="#services">Explore services</a>
+                </div>
+                <div class="proof">
+                    <div><strong>17+ years</strong><span>of engineering experience</span></div>
+                    <div><strong>15+</strong><span>client projects delivered</span></div>
+                    <div><strong>Since 2016</strong><span>serving UK companies</span></div>
+                </div>
+            </div>
+
+            <div class="visual" aria-hidden="true">
+                <div class="phone">
+                    <div class="screen">
+                        <span class="notch"></span>
+                        <div class="app-head"><small>Good morning</small><strong>Your App</strong></div>
+                        <div class="app-body">
+                            <div class="bubble"><b>✦ AI assistant</b>Here's a quick summary of what changed since yesterday.</div>
+                            <div class="row"><i class="bg-cyan"></i><span></span></div>
+                            <div class="row"><i class="bg-amber"></i><span></span></div>
+                            <div class="row"><i class="bg-emerald"></i><span></span></div>
+                        </div>
+                        <div class="tabbar"><i></i><i></i><i></i><i></i></div>
+                    </div>
+                </div>
+                <div class="window">
+                    <div class="window-bar"><i></i><i></i><i></i><span>your-platform · production</span></div>
+                    <div class="flow">
+                        <div class="node">
+                            <div class="ni bg-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+                            <div><strong>Data pipeline</strong><small>Ingest · clean · enrich</small></div>
+                            <span class="status">● streaming</span>
+                        </div>
+                        <div class="connector"></div>
+                        <div class="node ai">
+                            <div class="ni bg-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
+                            <div><strong>LLM service</strong><small>Summarise · classify</small></div>
+                            <span class="status">● healthy</span>
+                        </div>
+                        <div class="connector"></div>
+                        <div class="node">
+                            <div class="ni bg-indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13.5 6l-3 12"/></svg></div>
+                            <div><strong>Product API</strong><small>REST · auth · jobs</small></div>
+                            <span class="status">● healthy</span>
+                        </div>
+                        <div class="connector"></div>
+                        <div class="node">
+                            <div class="ni bg-magenta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.8A6 6 0 0 0 4.5 12 3.5 3.5 0 0 0 6 19z"/></svg></div>
+                            <div><strong>Cloud infrastructure</strong><small>Terraform · K8s · CI/CD</small></div>
+                            <span class="status">● deployed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="float f1"><span class="dot bg-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>All checks passed</div>
+                <div class="float f2"><span class="dot bg-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span>Released to production</div>
+            </div>
         </div>
+    </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                <li>
-                    <a class="page-scroll" href="#about">About</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#services">Services</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#projects">Projects</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#contact">Contact</a>
-                </li>
+    <!-- Industries -->
+    <div class="industries">
+        <div class="wrap">
+            <p>Experience across</p>
+            <ul>
+                <li>Fintech</li>
+                <li>Artificial intelligence</li>
+                <li>Public sector</li>
+                <li>Healthcare</li>
+                <li>Media &amp; film</li>
+                <li>Cybersecurity</li>
+                <li>Enterprise SaaS</li>
             </ul>
         </div>
-        <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container -->
-</nav>
 
-<!-- Intro Section -->
-<section id="about" class="intro-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h4 class="light-title">Creativity is at the heart of everything we do!</h4>
-                <div class="landing-content">
-                    <p class="lead">
-                        We always practice to the highest quality and ensure our clients expectations are exceeded. We love creating product as anything that is business itself. Our expertise areas are backend & frontend development, high availability apps and devops.
-                    </p>
-                </div>
-                <div class="row landing-icons ">
-                    <div class="col-lg-4 col-sm-4">
-                        <img src="images/development.png" >
-                    </div>
-                    <div class="col-lg-4 col-sm-4">
-                        <img src="images/cloud-link-to-database.png" >
-                    </div>
-
-                    <div class="col-lg-4 col-sm-4">
-                        <img src="images/internet.png" >
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Services Section -->
-<section id="services" class="services-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h4 class="light-title">Proficient in Cutting-Edge Tools</h4>
-            </div>
-            <div class="col-lg-2 thumb">
-                <div class="thumb-wrap">
-                    <img class="img-responsive" src="images/services/python.png" >
-                </div>
-            </div>
-            <div class="col-lg-2 thumb">
-                <div class="thumb-wrap">
-                    <img class="img-responsive" src="images/services/django.png" >
-                </div>
+    <!-- Services -->
+    <section id="services">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="kicker">Services</span>
+                <h2>Everything your product needs, <span class="grad-text">built for production</span></h2>
+                <p>We take ownership of the hard engineering problems behind your product, and leave your team with systems they can run and extend.</p>
             </div>
 
-            <div class="col-lg-2 thumb">
-                <div class="thumb-wrap">
-                    <img class="img-responsive" src="images/services/wagtail.svg" >
-                </div>
-            </div>
-
-            <div class="col-lg-2 thumb">
-                <div class="thumb-wrap">
-                    <img class="img-responsive" src="images/services/jenkins.png" >
-                </div>
-            </div>
-
-            <div class="col-lg-2 thumb">
-                <div class="thumb-wrap">
-                    <img class="img-responsive" src="images/services/aws.png" >
-                </div>
-            </div>
-
-            <div class="col-lg-2 thumb">
-                <div class="thumb-wrap">
-                    <img class="img-responsive" src="images/services/gae.png" >
-                </div>
-            </div>
-
-            <div class="col-lg-2 thumb">
-                <div class="thumb-wrap">
-                    <img class="img-responsive" src="images/services/postgresql-logo.png" >
-                </div>
-            </div>
-
-            <div class="col-lg-2 thumb">
-                <div class="thumb-wrap">
-                    <img class="img-responsive" src="images/services/redis.png" >
-                </div>
-            </div>
-
-            <div class="col-lg-2 thumb">
-                <div class="thumb-wrap">
-                    <img class="img-responsive" src="images/services/mongodb.png" >
-                </div>
-            </div>
-
-            <div class="col-lg-2 thumb">
-                <div class="thumb-wrap">
-                    <img class="img-responsive" src="images/services/angularjs.png" >
-                </div>
-            </div>
-
-            <div class="col-lg-2 thumb">
-                <div class="thumb-wrap">
-                    <img class="img-responsive" src="images/services/html5.png" >
-                </div>
-            </div>
-
-            <div class="col-lg-2 thumb">
-                <div class="thumb-wrap">
-                    <img class="img-responsive" src="images/services/logo-elastic.png" >
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects" class="projects-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h4 class="light-title">We love open source!</h4>
-            </div>
-            <div class="col-lg-12" >
-                <p class="lead description">
-                    We contributing a couple of open-source projects and we also making open-source our generic solutions.
-                </p>
-            </div>
-            <div class="col-lg-6 col-sm-12 text-column">
-                <div class="col-lg-12 project-column">
-                    <a href="http://admino.io/" target="_blank" class="title link-title" >Django Admino</a>
-                    <hr>
-                    <p class="light-text">
-                        Admino is a django package that provides a REST API for admin endpoints. It allows you to customize django admin panel.
-                    </p>
-                    <a href="http://admino.io/" target="_blank" class="detail-link pull-left" >Get more >></a>
-                </div>
-                <div class="col-lg-12" >
-
-                <a href="https://github.com/erdem/django-map-widgets" target="_blank" class="title link-title" >Django Map Widgets</a>
-                <hr>
-                <p class="light-text">
-                    Configurable, pluggable and more user friendly map widgets for GeoDjango fields.
-                </p>
-                <a href="https://github.com/erdem/django-map-widgets" target="_blank" class="detail-link pull-left" >Get more >></a>
-                </div>
-
-            </div>
-            <div class="col-lg-6 col-sm-12 text-column">
-                <div class="col-lg-12 project-column">
-                    <a target="_blank" class="title link-title" >What People Are Saying</a>
-                    <hr>
-                    <ul class="link-list">
-                        <li><a class="title" href="https://medium.com/@raiderrobert/top-10-new-django-projects-started-in-2016-f87ef043c8bb#.1fgw34453" target="_blank">Top 10 Django Projects Started in 2016 </a></li>
-                        <li><a class="title" href="https://twitter.com/oss_py/status/721805885060837376" target="_blank">Python OSS</a></li>
-                        <li><a class="title" href="https://twitter.com/PythonWeekly/status/783698531563470848" target="_blank">Python Weekly</a></li>
+            <div class="ai-services">
+                <article class="service featured">
+                    <span class="tag">AI</span>
+                    <div class="si bg-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
+                    <h3>AI &amp; LLM product development</h3>
+                    <p>Turn large language models into dependable features inside your product and internal tools, not just demos.</p>
+                    <ul>
+                        <li>Identifying where AI adds real value in your workflows</li>
+                        <li>LLM-powered features: summarisation, classification, search and assistants</li>
+                        <li>Production pipelines with evaluation and monitoring</li>
+                        <li>Integration with your existing backend, data and permissions</li>
                     </ul>
+                    <p class="tech"><b>Typically with</b> Python, FastAPI, LangChain, LLM APIs</p>
+                </article>
+                <article class="service featured">
+                    <span class="tag">AI</span>
+                    <div class="si bg-magenta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/><path d="M10 6.5h4a3 3 0 0 1 3 3V14M14 17.5h-4a3 3 0 0 1-3-3V10"/></svg></div>
+                    <h3>AI agents &amp; tool integration</h3>
+                    <p>Make your product's data and capabilities available to AI assistants and agents, securely and on your terms.</p>
+                    <ul>
+                        <li>Model Context Protocol (MCP) servers for your platform</li>
+                        <li>Agent workflows that call your APIs and internal tools</li>
+                        <li>Data preparation pipelines for model training</li>
+                        <li>Secure authentication and access control</li>
+                    </ul>
+                    <p class="tech"><b>Typically with</b> MCP, Python, Airflow, Temporal</p>
+                </article>
+            </div>
+
+            <article class="service mobile-service" id="mobile">
+                <div>
+                    <span class="tag">Mobile</span>
+                    <div class="si bg-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
+                    <h3>Mobile app development</h3>
+                    <p>From first idea to the App Store and Google Play: polished iOS and Android apps, built together with the backend, AI and cloud services that power them.</p>
+                    <ul>
+                        <li>iOS and Android apps, from MVP to production</li>
+                        <li>Secure APIs, authentication and data built alongside the app</li>
+                        <li>AI features inside your app: assistants, summaries, smart search</li>
+                        <li>Automated builds and releases to the app stores</li>
+                    </ul>
+                    <div class="store"><span>App Store</span><span>Google Play</span></div>
+                </div>
+                <div class="mobile-art" aria-hidden="true">
+                    <div class="mini-phone alt"><div><span></span><span></span><span></span></div></div>
+                    <div class="mini-phone"><div><span></span><span></span><span></span><span></span></div></div>
+                </div>
+            </article>
+
+            <div class="services">
+                <article class="service">
+                    <div class="si bg-indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/></svg></div>
+                    <h3>Backend platforms &amp; APIs</h3>
+                    <p>New products and services built on a backend that is fast, secure and ready to grow.</p>
+                    <ul>
+                        <li>API design and development</li>
+                        <li>Microservices and background processing</li>
+                        <li>Automated test suites from day one</li>
+                    </ul>
+                    <p class="tech"><b>Typically with</b> FastAPI, Django, Celery, PostgreSQL</p>
+                </article>
+                <article class="service">
+                    <div class="si bg-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h4l3 6 4-9 3 9h4"/><path d="M3 18h18"/></svg></div>
+                    <h3>Data pipelines &amp; streaming</h3>
+                    <p>Move, process and orchestrate large volumes of data reliably, in real time or on schedule.</p>
+                    <ul>
+                        <li>Event streaming and high-volume ingestion</li>
+                        <li>Scheduled and long-running workflows</li>
+                        <li>Analytics-ready reporting data</li>
+                    </ul>
+                    <p class="tech"><b>Typically with</b> Kafka, Airflow, Temporal, dbt</p>
+                </article>
+                <article class="service">
+                    <div class="si bg-sky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.8A6 6 0 0 0 4.5 12 3.5 3.5 0 0 0 6 19z"/></svg></div>
+                    <h3>Cloud &amp; DevOps</h3>
+                    <p>Infrastructure you can reproduce and releases your team can trust, on the cloud you already use.</p>
+                    <ul>
+                        <li>Infrastructure as code</li>
+                        <li>Container platforms and Kubernetes</li>
+                        <li>CI/CD with safe rollbacks and monitoring</li>
+                    </ul>
+                    <p class="tech"><b>Typically with</b> AWS, GCP, Azure, Terraform, Kubernetes</p>
+                </article>
+                <article class="service">
+                    <div class="si bg-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg></div>
+                    <h3>Legacy modernisation</h3>
+                    <p>Bring ageing platforms up to date without disrupting the customers who rely on them.</p>
+                    <ul>
+                        <li>Framework and runtime upgrades</li>
+                        <li>Migration between languages and services</li>
+                        <li>Backward-compatible, incremental rollout</li>
+                    </ul>
+                    <p class="tech"><b>Typically with</b> Python, Django, containerisation</p>
+                </article>
+                <article class="service">
+                    <div class="si bg-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+                    <h3>Enterprise integrations &amp; identity</h3>
+                    <p>Connect your platform to the systems enterprise customers expect, with access control done properly.</p>
+                    <ul>
+                        <li>Single sign-on and user migrations</li>
+                        <li>Role-based access control</li>
+                        <li>Procurement and e-invoicing integrations</li>
+                    </ul>
+                    <p class="tech"><b>Typically with</b> SAML, OAuth2, JWT, cXML</p>
+                </article>
+                <article class="service">
+                    <div class="si bg-emerald"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg></div>
+                    <h3>Performance &amp; scalability</h3>
+                    <p>Find the bottlenecks and design the architecture that lets your system handle what comes next.</p>
+                    <ul>
+                        <li>Scalable system and infrastructure design</li>
+                        <li>Worker, queue and caching optimisation</li>
+                        <li>Metrics and observability</li>
+                    </ul>
+                    <p class="tech"><b>Typically with</b> Redis, Celery, Prometheus, Grafana</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engagement models -->
+    <section id="engagements" class="tinted">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="kicker">Engagements</span>
+                <h2>Two ways to work with us</h2>
+                <p>Whether you need extra senior capacity or a self-contained piece of work delivered, we adapt to how your team operates.</p>
+            </div>
+            <div class="models">
+                <article class="model">
+                    <span class="num">01 · Embedded</span>
+                    <h3>Senior engineering for your team</h3>
+                    <p>We join your existing team, work in your codebase and processes, and take ownership of critical projects.</p>
+                    <ul>
+                        <li>Productive quickly in large, established codebases</li>
+                        <li>Works within your review, CI and release process</li>
+                        <li>Raises the bar on testing and documentation</li>
+                    </ul>
+                </article>
+                <article class="model">
+                    <span class="num">02 · Delivery</span>
+                    <h3>End-to-end project delivery</h3>
+                    <p>We take a defined service or feature from design to production, then hand it over ready for your team to run.</p>
+                    <ul>
+                        <li>Greenfield services built from scratch</li>
+                        <li>Infrastructure and deployment included</li>
+                        <li>Documentation and onboarding for your developers</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="kicker">Process</span>
+                <h2>How we deliver</h2>
+                <p>A simple, transparent process that keeps you in control at every step.</p>
+            </div>
+            <div class="process">
+                <div class="step">
+                    <h3>Discover</h3>
+                    <p>We learn your domain, your codebase and your constraints before proposing anything.</p>
+                </div>
+                <div class="step">
+                    <h3>Plan</h3>
+                    <p>A clear technical plan with small, reviewable milestones that you agree on up front.</p>
+                </div>
+                <div class="step">
+                    <h3>Build &amp; ship</h3>
+                    <p>AI-accelerated development, human-reviewed, with every change gated by tests and CI.</p>
+                </div>
+                <div class="step">
+                    <h3>Hand over</h3>
+                    <p>Documentation and onboarding, so your team fully owns what we built.</p>
                 </div>
             </div>
-
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Contact Section -->
-<section id="contact" class="contact-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 contact-title">
-                <h4 class="light-title">Contact us</h4>
+    <!-- Why -->
+    <section id="why" class="tinted">
+        <div class="wrap why">
+            <div>
+                <span class="kicker">Why Hypersoft</span>
+                <h2>Senior engineering, <span class="grad-text">without the overhead</span></h2>
+                <p class="intro">You work directly with the engineer who designs and builds your system. No layers of account management, no hand-offs to juniors.</p>
+                <p class="founder">
+                    Hypersoft Limited was founded by Erdem Ozkol, a backend engineer with more than 17 years of experience
+                    building software for UK companies.
+                    <a href="https://www.linkedin.com/in/erdemozkol" target="_blank" rel="noopener">LinkedIn</a> ·
+                    <a href="https://github.com/erdem" target="_blank" rel="noopener">GitHub</a>
+                </p>
             </div>
-
-            <div class="col-lg-4 col-lg-offset-2 text-column address">
-                <span class="title address-line block" >Hypersoft LTD.</span>
-                <span class="title address-line block" >Southgate</span>
-                <span class="title address-line block" >London</span>
-                <span class="title address-line block" >N14 6HF</span>
-                <span class="title address-line block" >London, United Kingdom</span>
-                <a href="mailto:hello@hypersoftlimited.co.uk" class="title address-line email-line block">hello@hypersoftlimited.co.uk</a>
+            <div class="why-list">
+                <div class="why-item">
+                    <div class="wi bg-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+                    <h3>AI-accelerated</h3>
+                    <p>We use AI coding agents every day to move faster, with every change planned and reviewed by a senior engineer.</p>
+                </div>
+                <div class="why-item">
+                    <div class="wi bg-indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/></svg></div>
+                    <h3>Regulated-ready</h3>
+                    <p>Experience in regulated fintech and public sector environments, where reliability is not optional.</p>
+                </div>
+                <div class="why-item">
+                    <div class="wi bg-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/></svg></div>
+                    <h3>Backward compatible</h3>
+                    <p>Changes ship without breaking the customers and integrations that depend on you.</p>
+                </div>
+                <div class="why-item">
+                    <div class="wi bg-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></div>
+                    <h3>Open-source minded</h3>
+                    <p>Clean, documented code that your team can read, maintain and build on.</p>
+                </div>
             </div>
-
-            <div class="col-lg-5 text-column ">
-                <iframe src="https://maps.google.com/maps?width=100%25&amp;height=450&amp;hl=en&amp;q=N14%206HF+(Hypersoft%20LTD)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-            </div>
-
-
         </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="wrap">
+            <div class="cta">
+                <h2>Let's build something great</h2>
+                <p>Tell us about your product, your team and what you need. We'll come back with an honest view of how we can help.</p>
+                <div class="actions">
+                    <a class="btn btn-white" href="mailto:hello@hypersoftlimited.co.uk?subject=Project%20enquiry">Send an enquiry</a>
+                    <a class="email" href="mailto:hello@hypersoftlimited.co.uk">hello@hypersoftlimited.co.uk</a>
+                </div>
+                <p class="where">Based in London · Working with teams across the UK</p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="wrap">
+        <img src="images/logo@2x.png" alt="HyperSoft" width="88" height="18">
+        <!-- TODO: UK company websites must show the company number and registered office address. -->
+        <span>© <span id="year">2026</span> Hypersoft Limited. Registered in England and Wales.</span>
+        <nav aria-label="Footer">
+            <a href="#services">Services</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </div>
-</section>
+</footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-<script src="js/jquery.easing.min.js"></script>
-<script src="js/scrolling-nav.js"></script>
-
-
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-88918906-1', 'auto');
-    ga('send', 'pageview');
-
-</script>
-
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
-
 </html>
